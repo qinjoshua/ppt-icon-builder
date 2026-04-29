@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Ribbon and context-menu definition for the Icon Builder add-in.
+
+  Placeholders (substituted at load time by IconBuilderRibbon.GetCustomUI):
+    {CallbackName}    Method name on the ribbon callback object that exports the selection.
+    {ButtonId}        ID prefix used for context-menu buttons (suffixed with the menu kind).
+    {MenuLabel}       Display label for the right-click context-menu entry.
+    {GuideSizesInlineXml}  Inline two-column <checkBox> grid, generated from
+                           IconBuilderRibbon.GuideSizes. Wrapped in a <box> whose visibility is
+                           toggled via getVisible="GetGuideSizesExpandedVisible" so it disappears
+                           when the ribbon window is too narrow to display it cleanly.
+
+    {GuideSizesMenuXml}    A <menu> dropdown alternative containing the same per-size checkBoxes
+                           (different control IDs, same selection state). Visibility is toggled
+                           via getVisible="GetGuideSizesCollapsedVisible" so it appears only when
+                           the inline grid is hidden, giving the group a custom responsive
+                           expand/collapse behavior since Office's built-in group auto-collapse
+                           is unreliable for groups containing many small controls.
+-->
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="OnRibbonLoad">
+  <ribbon>
+    <tabs>
+      <tab id="IconBuilderTab" label="Icon Builder">
+        <group id="IconBuilderGroup" label="Icon Builder">
+          <button id="IconBuilder_TabBtn" size="large" label="Save Selection as Icon"
+                  onAction="{CallbackName}" imageMso="FileSave"/>
+          <toggleButton id="IconBuilder_PaneBtn" size="large" label="Icon Editor Pane"
+                  onAction="OnToggleEditorPane" getPressed="GetEditorPanePressed"
+                  imageMso="SelectionPane"/>
+        </group>
+        <group id="IconBuilderSizesGroup" label="Guide Sizes">
+          <box id="GuideSizesExpanded" boxStyle="horizontal"
+               getVisible="GetGuideSizesExpandedVisible">
+{GuideSizesInlineXml}
+          </box>
+{GuideSizesMenuXml}
+          <button id="IconBuilder_GuideBtn" size="large" label="Insert Guide Squares"
+                  onAction="OnInsertGuideSquares" imageMso="ShapeRectangle"/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+  <contextMenus>
+    <contextMenu idMso="ContextMenuShape">
+      <button id="{ButtonId}_Shape" label="{MenuLabel}" onAction="{CallbackName}"/>
+    </contextMenu>
+    <contextMenu idMso="ContextMenuObjectsGroup">
+      <button id="{ButtonId}_Group" label="{MenuLabel}" onAction="{CallbackName}"/>
+    </contextMenu>
+    <contextMenu idMso="ContextMenuPicture">
+      <button id="{ButtonId}_Picture" label="{MenuLabel}" onAction="{CallbackName}"/>
+    </contextMenu>
+    <contextMenu idMso="ContextMenuTextEdit">
+      <button id="{ButtonId}_TextEdit" label="{MenuLabel}" onAction="{CallbackName}"/>
+    </contextMenu>
+    <contextMenu idMso="ContextMenuShapeConnector">
+      <button id="{ButtonId}_Connector" label="{MenuLabel}" onAction="{CallbackName}"/>
+    </contextMenu>
+    <contextMenu idMso="ContextMenuShapeFreeform">
+      <button id="{ButtonId}_Freeform" label="{MenuLabel}" onAction="{CallbackName}"/>
+    </contextMenu>
+    <contextMenu idMso="ContextMenuGraphic">
+      <button id="{ButtonId}_Graphic" label="{MenuLabel}" onAction="{CallbackName}"/>
+    </contextMenu>
+    <contextMenu idMso="ContextMenuVideo">
+      <button id="{ButtonId}_Video" label="{MenuLabel}" onAction="{CallbackName}"/>
+    </contextMenu>
+    <contextMenu idMso="ContextMenuAudio">
+      <button id="{ButtonId}_Audio" label="{MenuLabel}" onAction="{CallbackName}"/>
+    </contextMenu>
+    <contextMenu idMso="ContextMenu3DModel">
+      <button id="{ButtonId}_3DModel" label="{MenuLabel}" onAction="{CallbackName}"/>
+    </contextMenu>
+  </contextMenus>
+</customUI>
