@@ -1,3 +1,5 @@
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/d3ae1368-fb8e-4a44-8958-b73ee19d7eeb" />
+
 # PowerPoint Icon Builder
 A PowerPoint VSTO add-in that provides options to build and export .ico icons.
 
