@@ -1,3 +1,5 @@
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/d3ae1368-fb8e-4a44-8958-b73ee19d7eeb" />
+
 # PowerPoint Icon Builder
 A PowerPoint VSTO add-in that provides options to build and export .ico icons.
 
@@ -49,3 +51,6 @@ If you'd like to replace the icon for a certain size, you can select a different
 <img width="995" height="676" alt="image" src="https://github.com/user-attachments/assets/32173cb6-e069-45cf-8f5b-858b745fb455" />
 
 Before the icon can be saved, you have one last chance to preview the icon at every resolution. Once you are satisfied with how the icon works, you can hit "Save" and you will be prompted for a location on your computer to save the icon to.
+
+## AI Disclosure
+This project has been entirely vibe coded and minimally reviewed. There's no SLA or warranty of any kind, not recommended for production setups.
